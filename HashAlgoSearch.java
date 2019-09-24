@@ -44,6 +44,7 @@ public class HashAlgoSearch {
 	}
 
 	private static int[] allIterations() {
+		// {256, 1000, 1024, 2000, 2048, 4096, 20*1000, 65536}
 		int NUM = 100000;
 		int res[] = new int[NUM];
 		for (int i = 0;i < NUM;i++) {
@@ -53,7 +54,7 @@ public class HashAlgoSearch {
 	}
 	
 	private static void tryDecoding(String password, byte[] salt, byte[] target) throws GeneralSecurityException {
-		int[] ITERATIONS = allIterations();  // {20*1000, 65536}
+		int[] ITERATIONS = allIterations();
 		for (String algo : listAlgos()) {
 			SecretKeyFactory skf;
 			try {
